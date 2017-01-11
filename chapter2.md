@@ -1,6 +1,6 @@
 ## Chapter2: THE FILE SYSTEM 
 
-### overview
+### Overview
 1. everything in unix is based on file
 2. keep it simple philosophy
 3. power can be achieved by careful implememntation of a few well-chosen ideas. 
@@ -62,34 +62,33 @@
     * ln: makes link to an existing file with synatx "ln old-file new-file"
     * li -li: display the files in the wd, and number of links each file has, all links points to the inode of file. 
 
-### removing a file
-    * once the last link to a file is removed, the file is destroyed from the system, and no way to restore the file unless you can make a copy of the file. 
+### Removing a file
+* once the last link to a file is removed, the file is destroyed from the system, and no way to restore the file unless you can make a copy of the file. 
 
-### copying a file 
-    * cp: copy a file (eg. cp junk copyofjunk)
-    * this is useful to turn off write permission to protect the copy of file (chmod -w copyofjunk)
-    * if a file has write permission turned off, rm this file would require a permission 
+### Copying a file 
+* cp: copy a file (eg. cp junk copyofjunk)
+* this is useful to turn off write permission to protect the copy of file (chmod -w copyofjunk)
+* if a file has write permission turned off, rm this file would require a permission 
 
-### rename/move a file 
-    * mv: rename a file (mv junk sameoldjunk), or move a file to another directory (mv junk /newfolder)
-    * the file has been renamed would have the same i-number
+### Rename/move a file 
+* mv: rename a file (mv junk sameoldjunk), or move a file to another directory (mv junk /newfolder)
+* the file has been renamed would have the same i-number
 
-### directory hiearchy 
-    * enter ls / 
-        1. /bin is the directory where basic programs resides
-        2. /dev 
-        3. /etc various admin files such as password and system programs
-        4. /lib contains primarily parts of C compiler such as /lib/cpp, and lib/lib/libc.a 
-        5. /tmp temporary files, cleaned when system is restarted 
-        6. /user user file system
+### Directory hiearchy 
+* enter ls / 
+    1. /bin is the directory where basic programs resides
+    2. /dev 
+    3. /etc various admin files such as password and system programs
+    4. /lib contains primarily parts of C compiler such as /lib/cpp, and lib/lib/libc.a 
+    5. /tmp temporary files, cleaned when system is restarted 
+    6. /user user file system
 
-### devices
-    * /dev contains device files
-    * each dev is either block or character devices represents as files under /dev
-    * discs and tapes are block devices
-    * everything else: terminals, printer, phone lines are character device 
-    * eg. /dev/rp10 (1 represents the physical drive, 0 represents the portion of drive)
-    * df: disk free command reports the available space on the mounted file subsystem.
-    * tty: tells you which terminal you are using. terminal file is stored at dev/tty
-    * /dev/null: data written to dev/null is thrown away, while the programs that read from /dev/null get end of file immediately. This is useful to know when you do not care what output the program is producing, you can direct the output to /dev/null
-        
+### Devices
+* /dev contains device files
+* each dev is either block or character devices represents as files under /dev
+* discs and tapes are block devices
+* everything else: terminals, printer, phone lines are character device 
+* eg. /dev/rp10 (1 represents the physical drive, 0 represents the portion of drive)
+* df: disk free command reports the available space on the mounted file subsystem.
+* tty: tells you which terminal you are using. terminal file is stored at dev/tty
+* /dev/null: data written to dev/null is thrown away, while the programs that read from /dev/null get end of file immediately. This is useful to know when you do not care what output the program is producing, you can direct the output to /dev/null
